@@ -1,0 +1,16 @@
+apiVersion: demos.james.com/v1
+kind: Demo
+metadata:
+  name: james-demo1
+  namespace: default
+  labels:
+    app: james-demo1
+spec:
+  replicas: 3
+  template:
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+        ports:
+        - containerPort: 80
