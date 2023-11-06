@@ -41,16 +41,17 @@ type DemoStatus struct {
 
 // Demo is the Schema for the demoes API
 type Demo struct {
-	metav1.TypeMeta   `json:",inline"`
-	metav1.ObjectMeta `json:"metadata,omitempty"`
+	metav1.TypeMeta   `json:",inline"`            // API 元数据
+	metav1.ObjectMeta `json:"metadata,omitempty"` // 对象元数据
 
-	Spec   DemoSpec   `json:"spec,omitempty"`
+	Spec   DemoSpec   `json:"spec,omitempty"` // 自定义部分
 	Status DemoStatus `json:"status,omitempty"`
 }
 
 //+kubebuilder:object:root=true
 
 // DemoList contains a list of Demo
+// Kubernetes 获取对象的 List() 方法，返回 List 类型，而非对象类型的数组
 type DemoList struct {
 	metav1.TypeMeta `json:",inline"`
 	metav1.ListMeta `json:"metadata,omitempty"`
@@ -58,5 +59,5 @@ type DemoList struct {
 }
 
 func init() {
-	SchemeBuilder.Register(&Demo{}, &DemoList{})
+	SchemeBuilder.Register(&Demo{}, &DemoList{}) // 向 APIServer 注册类型
 }

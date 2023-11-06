@@ -6,15 +6,16 @@ metadata:
     controller-gen.kubebuilder.io/version: v0.13.0
   name: demoes.demos.james.com
 spec:
-  group: demos.james.com
+  # API 资源的宏观定义
+  group: demos.james.com  # 指定 group
   names:
-    kind: Demo
+    kind: Demo  # 指定资源类型
     listKind: DemoList
-    plural: demoes
+    plural: demoes  # 复数
     singular: demo
-  scope: Namespaced
+  scope: Namespaced # 属于 Namespace 的对象
   versions:
-  - name: v1
+  - name: v1  # 指定 version
     schema:
       openAPIV3Schema:
         description: Demo is the Schema for the demoes API
